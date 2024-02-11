@@ -29,5 +29,6 @@ jobs:
           commit_message: "Save websites HTML"
           file_pattern: '*.html'
           branch: ${{ github.ref }}
+          force: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
