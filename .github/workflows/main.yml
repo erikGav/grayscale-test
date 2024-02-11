@@ -17,14 +17,13 @@ jobs:
 
       - name: Save Website
         run: |
-          mkdir saved_html
-          curl -L -o saved_html/website.html https://www.grayscale.com/crypto-products/grayscale-litecoin-trust
+          curl -L -o website.html https://example.com  # Replace example.com with the website URL you want to save
 
       - name: Commit and Push Changes
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: "Save website HTML"
-          file_pattern: saved_html/*
+          file_pattern: ltcn.html
           branch: ${{ github.ref }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
