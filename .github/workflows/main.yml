@@ -1,4 +1,4 @@
-name: Save Website as HTML
+name: Save Websites as HTML
 
 on:
   schedule:
@@ -8,22 +8,26 @@ permissions:
   contents: write
 
 jobs:
-  save_website:
+  save_websites:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Save Website
+      - name: Save Website 1 (index.html)
         run: |
-          curl -L -o website.html https://example.com  # Replace example.com with the website URL you want to save
+          curl -L -o index.html https://www.grayscale.com/crypto-products/grayscale-bitcoin-cash-trust
+
+      - name: Save Website 2 (ltcn.html)
+        run: |
+          curl -L -o ltcn.html https://www.grayscale.com/crypto-products/grayscale-litecoin-trust
 
       - name: Commit and Push Changes
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: "Save website HTML"
-          file_pattern: ltcn.html
+          commit_message: "Save websites HTML"
+          file_pattern: '*.html'
           branch: ${{ github.ref }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
