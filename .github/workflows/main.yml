@@ -1,0 +1,27 @@
+name: Save Website as HTML
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'  # Runs every 5 minutes
+
+jobs:
+  save_website:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Save Website
+        run: |
+          mkdir saved_html
+          curl -L -o saved_html/website.html https://www.grayscale.com/crypto-products/grayscale-litecoin-trust
+
+      - name: Commit and Push Changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "Save website HTML"
+          file_pattern: saved_html/*
+          branch: ${{ github.ref }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
