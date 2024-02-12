@@ -3,6 +3,7 @@ name: Save Websites as HTML
 on:
   schedule:
     - cron: '30 14 * * 1-5'  # Monday to Friday at 14:30 UTC
+    - cron: '0 18 * * 1-5'   # Monday to Friday at 18:00 UTC
     - cron: '0 21 * * 1-5'   # Monday to Friday at 21:00 UTC
 
 permissions:
