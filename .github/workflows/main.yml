@@ -20,11 +20,11 @@ jobs:
 
       - name: Save Website 1 (index.html)
         run: |
-          curl -L -o index.html https://example1.com  # Replace example1.com with the first website URL you want to save
-
+          curl -L -o index.html https://www.grayscale.com/crypto-products/grayscale-bitcoin-cash-trust
+    
       - name: Save Website 2 (ltcn.html)
         run: |
-          curl -L -o ltcn.html https://example2.com  # Replace example2.com with the second website URL you want to save
+          curl -L -o ltcn.html https://www.grayscale.com/crypto-products/grayscale-litecoin-trust
 
       - name: Commit and Push Changes
         uses: stefanzweifel/git-auto-commit-action@v4
